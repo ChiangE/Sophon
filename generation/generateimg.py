@@ -122,7 +122,7 @@ class DDPMTester(nn.Module):
 
     # forward diffusion (using the nice property): q(x_t | x_0)
     def add_noise(self, x_start, t, noise):
-        # import pdb;pdb.set_trace()  t越小 噪声越少 
+        # import pdb;pdb.set_trace() 
         # 
         sqrt_alphas_cumprod_t = extract(self.sqrt_alphas_cumprod, t,
                                         x_start.shape)
@@ -149,7 +149,7 @@ class DDPMTester(nn.Module):
 
         t = t * torch.ones(noisy_x.shape[0], dtype=torch.int64).cuda()
         eps_theta = model(noisy_x.float(), t)
-        #得到均值
+        
         # import pdb;pdb.set_trace()
         # print(t.shape)
         print('beta', self.betas[t].shape)
@@ -159,7 +159,7 @@ class DDPMTester(nn.Module):
         mean = (1 / (1 - self.betas[t]).sqrt()).reshape(-1,1,1,1) * (noisy_x - (coeff.reshape(-1,1,1,1) * eps_theta))
         z = torch.randn_like(noisy_x)
         sigma_t = self.betas[t].sqrt().reshape(-1,1,1,1)
-        #得到sample的分布
+        
         if t[0] == 0:
             sample = mean
         else:
@@ -295,19 +295,19 @@ def generateimg(args, name, model, trainer, testloader):
                 for i, (x, x_noise, x_ori) in enumerate(zip(x_denoise[step], noisy_x, x_original)):
                         x = torch.clamp(x, 0, 1) 
                         image_denoise = x.detach().cpu().numpy()
-                        plt.imshow(np.transpose(image_denoise, (1, 2, 0)))  # 调整通道顺序
-                        plt.axis('off')  # 关闭坐标轴
+                        plt.imshow(np.transpose(image_denoise, (1, 2, 0))) 
+                        plt.axis('off')  
                         plt.savefig(save_dir+f'/denoised_image_{i}_step{step}.png', bbox_inches='tight', pad_inches=0.0)
 
                         if step == 20 & i == 0:
                             image_original = x_ori.detach().cpu().numpy()
-                            plt.imshow(np.transpose(image_original, (1, 2, 0)))  # 调整通道顺序
-                            plt.axis('off')  # 关闭坐标轴
+                            plt.imshow(np.transpose(image_original, (1, 2, 0)))  
+                            plt.axis('off')  
                             plt.savefig(save_dir+f'/original_image_{i}.png', bbox_inches='tight', pad_inches=0.0)
 
                             image_noisy = x_noise.detach().cpu().numpy()
-                            plt.imshow(np.transpose(image_noisy, (1, 2, 0)))  # 调整通道顺序
-                            plt.axis('off')  # 关闭坐标轴
+                            plt.imshow(np.transpose(image_noisy, (1, 2, 0))) 
+                            plt.axis('off') 
                             plt.savefig(save_dir+f'/noisy_image_{i}.png', bbox_inches='tight', pad_inches=0.0)
                 print(f"Saving generated images to {save_dir} !")
             exit()
