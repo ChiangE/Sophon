@@ -8,7 +8,7 @@
 
 + [Usage](https://github.com/Sophon-NonFinetunableLearning/Sophon/blob/main/Readme.md#usage)
 
-+ [Note]
++ [Note](https://github.com/Sophon-NonFinetunableLearning/Sophon/blob/main/Readme.md#note)
 
   
 
@@ -138,7 +138,7 @@ python mean_squared_loss.py --pretest pretrained
 
 
 
-### 'Readme'
+### Note
 
 Since our work is still under review, the current code may be incomplete to ensure anonymity. It is only for readers to consult and reference. The completed and executable code will be updated once our work is accepted.
 
