@@ -6,9 +6,9 @@
 
 + [Install](https://github.com/Sophon-NonFinetunableLearning/Sophon/blob/main/Readme.md#install)
 
-+ Usage
++ [Usage](https://github.com/Sophon-NonFinetunableLearning/Sophon/blob/main/Readme.md#usage)
 
-+ 'Readme'
++ [Note]
 
   
 
