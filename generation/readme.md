@@ -1,2 +1,0 @@
-# Sophon - Generation task
-## 
