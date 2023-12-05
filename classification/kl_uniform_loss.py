@@ -1,8 +1,4 @@
-"""
-caformer: args.finetune_lr=0.0001  args.fast_lr=0.0001
-其他模型结构：维持默认
 
-"""
 import random
 import numpy as np
 from torch.utils.data import DataLoader
@@ -232,7 +228,6 @@ def main(
     target_iter = iter(target_trainloader)
 
 
-    ### 存储变量们
     queryset_loss = []
     queryset_acc = []
     originaltest_loss = []
