@@ -1,4 +1,4 @@
-# SOPHON: Non-fine-tunable learning
+# SOPHON: Non-Fine-Tunable Learning
 
 
 
