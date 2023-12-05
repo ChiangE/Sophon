@@ -27,7 +27,7 @@ conda env create -f environment.yml
 The whole project is devided into two parts: 	
 
 + classification : codes for reproducing our classification-related experiments
-+ classification : codes for reproducing our generation-related experiments
++ generation : codes for reproducing our generation-related experiments
 
 
 
