@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-+ Install
++ Install[](https://github.com/Sophon-NonFinetunableLearning/Sophon/blob/main/Readme.md#install)
 
 + Usage
 
