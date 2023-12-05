@@ -174,7 +174,7 @@ def main(
     target_iter = iter(target_trainloader)
 
 
-    ### 存储变量们
+    
     queryset_loss = []
     queryset_acc = []
     originaltest_loss = []
