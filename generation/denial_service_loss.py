@@ -1,15 +1,3 @@
-"""
-继承maml_diffusion_celeba.py 区别是这里的trainer都是t=1
-"""
-
-"""
-OMP_NUM_THREADS=1 python ./denoise_maml_diffusion_celeba.py --alpha 1.0 --beta 5.0 --test_iter 10 --bs 100 --fast_batches 50 --ml 1 --nl 1 --test_iter 5 --gpu 0,2,5
-#三张卡：bs100
-
-OMP_NUM_THREADS=1 python ./denoise_maml_diffusion_celeba.py --pretest scratch --bs 500 --gpu
-1
-"""
-
 import os
 import sys
 import warnings
