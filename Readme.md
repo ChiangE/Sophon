@@ -4,7 +4,7 @@
 
 ## Table of Contents
 
-+ [Install](https://github.com/Sophon-NonFinetunableLearning/Sophon/blob/main/Readme.md#install)
++ [Preperation](https://github.com/Sophon-NonFinetunableLearning/Sophon/blob/main/Readme.md#preperation)
 
 + [Usage](https://github.com/Sophon-NonFinetunableLearning/Sophon/blob/main/Readme.md#usage)
 
@@ -12,14 +12,15 @@
 
   
 
-## Install
+## Preperation
 
 You can build the required environment  by running:
 
 ```bash
 conda env create -f environment.yml
 ```
-
+Put pretrained models in ``./classification/pretrained`` and ``./generation/pretrained``
+Put datasets in ``../datasets``
 
 
 ## Usage
