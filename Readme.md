@@ -1,4 +1,4 @@
-# Sophon - machine unable learning
+# Sophon - Non-finetunable-learning
 
 
 
