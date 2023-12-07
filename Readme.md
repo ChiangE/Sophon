@@ -14,7 +14,7 @@
 This is the implementation of paper: **SOPHON: Non-Fine-Tunable Learning to Restrain Task Transferability
 For Pre-trained Models**
 
-<img src="https://github.com/Sophon-NonFinetunableLearning/Sophon/blob/main/sophon.png" width="500px" align="center"/>
+<img src="https://github.com/Sophon-NonFinetunableLearning/Sophon/blob/main/sophon.png" width="500" align="center"/>
 
 
 
