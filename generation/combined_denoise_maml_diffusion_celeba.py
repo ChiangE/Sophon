@@ -305,25 +305,3 @@ if __name__ == '__main__':
     wandb.log({"Finetune target test loss": targettestloss})
     
     
-    
-    # print('-----test ours-----')
-    # test_model = copy.deepcopy(model)
-    # finetune_optimizer, model_layer_weight_decay_list = build_optimizer(config, test_model)
-    # scheduler = Scheduler(config, finetune_optimizer)
-    # loss, fid = final_testfinetune_lr('ours', test_model, fid_model, sampler, config, target_trainloader, target_trainloader_fortest, target_testloader, trainer, train_criterion, scheduler, finetune_optimizer, args.truly_finetune_epochs)
-
-    # print('-----test normal pretrained-----')
-    # test_model = copy.deepcopy(model)
-    # ckpt = '/home/shengyuan/code/diffmaml/pretrained/checkpoints/latest.pth'
-    # checkpoint = torch.load(ckpt, map_location=torch.device('cpu'))
-    # test_model = nn.DataParallel(model)
-    # test_model.load_state_dict(checkpoint['model_state_dict'])
-    # finetune_optimizer, model_layer_weight_decay_list = build_optimizer(config, test_model)
-    # scheduler = Scheduler(config, finetune_optimizer)
-    # loss, fid = final_testfinetune_lr('normal pretrained', test_model, fid_model, sampler, config, target_trainloader, target_trainloader_fortest, target_testloader, trainer, train_criterion, scheduler, finetune_optimizer, args.truly_finetune_epochs)
-
-    # print('-----test train from scratch-----')
-    # test_model = config.model.cuda()
-    # finetune_optimizer, model_layer_weight_decay_list = build_optimizer(config, test_model)
-    # scheduler = Scheduler(config, finetune_optimizer)
-    # loss, fid = final_testfinetune_lr('train from scratch', test_model, fid_model, sampler, config, target_trainloader, target_trainloader_fortest, target_testloader, trainer, train_criterion, scheduler, finetune_optimizer, args.truly_finetune_epochs)
