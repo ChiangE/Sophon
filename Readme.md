@@ -27,6 +27,7 @@ You can build the required environment  by running:
 conda env create -f environment.yml
 ```
 Put pretrained models in ``./classification/pretrained`` and ``./generation/pretrained``
+
 Put datasets in ``../datasets``
 
 
