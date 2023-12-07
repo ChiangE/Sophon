@@ -41,7 +41,7 @@ class aug_CIFAR1Dataset(Dataset):
         # convert to BHWC
         self.images = self.images.transpose((0, 2, 3, 1))
 
-        # 找出第0类保留
+        
         # import pdb;pdb.set_trace()
         index = np.array(self.labels)==0
         self.images = self.images[index]
@@ -123,7 +123,7 @@ class CIFAR1Dataset(Dataset):
         # convert to BHWC
         self.images = self.images.transpose((0, 2, 3, 1))
 
-        # 找出第0类保留
+        
         # import pdb;pdb.set_trace()
         index = np.array(self.labels)==0
         self.images = self.images[index]
