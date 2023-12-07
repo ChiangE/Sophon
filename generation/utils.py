@@ -507,7 +507,7 @@ def generate_diffusion_model_images(test_loader, model, sampler, config):
         model_on_cuda = next(model.parameters()).is_cuda
         for data in tqdm(test_loader, desc='generating iterations'):
             batch_idx += 1
-            if batch_idx > 5: #生成50*bs张就返回 节省时间
+            if batch_idx > 5: 
                 break
             images = data['image']
             if model_on_cuda:
