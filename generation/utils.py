@@ -120,8 +120,7 @@ def parse_args_example():
                         type=list,
                         default=[1, 10, 100],
                         help='explain variable')
-    # store_true即命令行有这个参数时，值为True,没有这个参数时，默认值为False
-    # store_false即命令行有这个参数时，值为False,没有这个参数时，默认值为True
+
     parser.add_argument('--bool-variable',
                         default=False,
                         action='store_true',
@@ -265,8 +264,7 @@ def compute_diffusion_model_metric(test_images_dataloader,
             if model_on_cuda:
                 if isinstance(data, list):
                     data = data[0].to(torch.float32)
-                data = data.cuda() #不道为啥 data是一个list 长度是1 data[0]才是[bs,3,32,32]的tensor
-                                                        # 大概知道了 推测是因为TensorData一般接收(data, labels) 所以迭代出来的是一个元组（有label则两个元素 没有label则一个元素 但依然差一层维度）
+                data = data.cuda() 
             preds = fid_model(data)
             per_batch_pred_features = preds[0].squeeze(-1).squeeze(
                 -1).cpu().numpy()
@@ -527,7 +525,6 @@ def generate_diffusion_model_images(test_loader, model, sampler, config):
             if config.use_input_images:
                 input_images = images
 
-            # 采样合成 input_images有多少张 就合成多少张
             _, outputs = sampler(model,
                                  images.shape,
                                  class_label=labels,
@@ -541,7 +538,7 @@ def generate_diffusion_model_images(test_loader, model, sampler, config):
             std = np.expand_dims(np.expand_dims(config.std, axis=0), axis=0)
 
             for image_idx, (per_image,
-                            per_output) in enumerate(zip(images, outputs)): #images是真实test images， outputs是合成的images
+                            per_output) in enumerate(zip(images, outputs)): 
                 per_image = per_image.cpu().numpy()
                 per_image = per_image.transpose(1, 2, 0) # 3*32*32 --> 32*32*3
                 per_image = (per_image * std + mean) * 255.
@@ -620,7 +617,7 @@ def generate_diffusion_model_images_condition(test_loader, model, classifier, sa
         model_on_cuda = next(model.parameters()).is_cuda
         for data in tqdm(test_loader, desc='generating 50 iterations'):
             batch_idx += 1
-            # if batch_idx > 5: #生成50*bs张就返回 节省时间
+            # if batch_idx > 5:
             #     break
             images = data['image']
             if model_on_cuda:
@@ -638,7 +635,7 @@ def generate_diffusion_model_images_condition(test_loader, model, classifier, sa
             if config.use_input_images:
                 input_images = images
 
-            # 采样合成 input_images有多少张 就合成多少张
+           
             _, outputs = sampler(model,
                                  images.shape,
                                  class_label=labels,
@@ -652,7 +649,7 @@ def generate_diffusion_model_images_condition(test_loader, model, classifier, sa
             std = np.expand_dims(np.expand_dims(config.std, axis=0), axis=0)
 
             for image_idx, (per_image,
-                            per_output) in enumerate(zip(images, outputs)): #images是真实test images， outputs是合成的images
+                            per_output) in enumerate(zip(images, outputs)): 
                 per_image = per_image.cpu().numpy()
                 per_image = per_image.transpose(1, 2, 0) # 3*32*32 --> 32*32*3
                 per_image = (per_image * std + mean) * 255.
@@ -745,7 +742,7 @@ def generate_diffusion_model_images_tensor(test_loader, model, sampler, config):
         batch_idx = 0
         for data in tqdm(test_loader):
             batch_idx += 1
-            if batch_idx > 20: #生成5*256张就返回 节省时间
+            if batch_idx > 20:
                 break
             images = data['image']
             if model_on_cuda:
@@ -1191,7 +1188,7 @@ def finetune_model_backup(model,config, target_trainloader,trainer, criterion, s
                 torch.nn.utils.clip_grad_norm_(model.parameters(),
                                                 config.clip_max_norm)
             # import pdb;pdb.set_trace()
-            config.scaler.step(optimizer)  # 参数更新
+            config.scaler.step(optimizer) 
             config.scaler.update()
             optimizer.zero_grad()
             losses.update(loss, images.size(0))
@@ -1287,7 +1284,7 @@ def combined_train_diffusion_model(batchori, batchtar, model, criterion, trainer
         config.scaler.unscale_(optimizer)
         torch.nn.utils.clip_grad_norm_(model.parameters(),
                                         config.clip_max_norm)
-    config.scaler.step(optimizer)  # 参数更新
+    config.scaler.step(optimizer)
     config.scaler.update()
     optimizer.zero_grad()
     losses.update(loss, images.size(0))
