@@ -40,7 +40,7 @@ class CIFAR9Dataset(Dataset):
         # convert to BHWC
         self.images = self.images.transpose((0, 2, 3, 1))
 
-        # 找出1-9类保留
+        
         # import pdb;pdb.set_trace()
         index = np.array(self.labels)==0
         self.images = self.images[~index]
@@ -118,7 +118,7 @@ class aug_CIFAR9Dataset_cifar1(Dataset):
         # convert to BHWC
         self.images = self.images.transpose((0, 2, 3, 1))
 
-        # 找出1-9类中的任意一类保留
+        
         # import pdb;pdb.set_trace()
         index = np.array(self.labels)==1
         self.images = self.images[index]
@@ -197,7 +197,7 @@ class CIFAR9Dataset_cifar1(Dataset):
         # convert to BHWC
         self.images = self.images.transpose((0, 2, 3, 1))
 
-        # 找出1-9类中的任意一类保留
+       
         # import pdb;pdb.set_trace()
         index = np.array(self.labels)==1
         self.images = self.images[index]
