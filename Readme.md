@@ -1,6 +1,10 @@
-# SOPHON: Non-Fine-Tunable Learning
+# SOPHON: Non-Fine-Tunable Learning to Restrain Task Transferability For Pre-trained Models
 
+[https://arxiv.org/abs/2404.12699](https://arxiv.org/abs/2404.12699)
 
+Jiangyi Deng (1), Shengyuan Pang (1), Yanjiao Chen (1), Liangming Xia (1), Yijie Bai (1), Haiqin Weng (2), Wenyuan Xu (1) ((1) Zhejiang University, (2) Ant Group)
+
+**Accepted by IEEE Symposium on Security and Privacy 2024**
 
 ## Table of Contents
 + [Introduction](https://github.com/Sophon-NonFinetunableLearning/Sophon/blob/main/Readme.md#introduction)
